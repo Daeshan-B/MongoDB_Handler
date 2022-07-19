@@ -1,5 +1,3 @@
-package dev.thesourcecode;
-
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -9,7 +7,6 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.HashMap;
-
 
 /**
  * The module for connection to the Mongo Database
@@ -47,12 +44,12 @@ public class MongoHandler {
      *
      * @param databasename is the name of the database you want to connect to.
      */
-    public static void connect(String databasename, String username, String password) {
+    public static void connect(String ip, String databasename, String username, String password) {
         try {
             String uri;
 
             if (isProduction) {
-                uri = "mongodb://" + username + ":" + password + IP + ":27017/?authSource=" + databasename;
+                uri = "mongodb://" + username + ":" + password + ip + ":27017/?authSource=" + databasename;
             } else {
                 password = PASSWORD;
                 uri = "mongodb://daeshan:" + password + "@localhost";
